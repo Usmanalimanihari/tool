@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ईद मुबारक विशेज जनरेटर</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f3e9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            background-image: url('https://i.imgur.com/Jf9j2Lm.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 60%);
+            transform: rotate(30deg);
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            position: relative;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            position: relative;
+        }
+        
+        .content {
+            padding: 25px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 15px 0;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .wish-container {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f1f8e9;
+            border-radius: 15px;
+            border-left: 4px solid #4CAF50;
+            text-align: center;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wish-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #4CAF50, #FFD700, #4CAF50);
+        }
+        
+        .wish-text {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+        
+        .from-text {
+            font-size: 16px;
+            color: #2E7D32;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        .moon {
+            width: 80px;
+            height: 80px;
+            background: #FFD700;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .moon::before {
+            content: "";
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 20px;
+            height: 20px;
+            background: #f9f3e9;
+            border-radius: 50%;
+            box-shadow: 3px 3px 0 0 #f9f3e9;
+        }
+        
+        .decoration {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .dec-1 { top: 15px; left: 15px; }
+        .dec-2 { top: 15px; right: 15px; }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 24px;
+            }
+            
+            .subtitle {
+                font-size: 14px;
+            }
+            
+            .wish-text {
+                font-size: 16px;
+            }
+            
+            .content {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="decoration dec-1">🌙</div>
+            <div class="decoration dec-2">🌙</div>
+            <h1>ईद मुबारक विशेज</h1>
+            <p class="subtitle">अपने नाम से शेयर करें खास ईद की बधाई</p>
+        </div>
+        <div class="content">
+            <div class="input-group">
+                <label for="name">आपका नाम:</label>
+                <input type="text" id="name" placeholder="अपना नाम यहाँ लिखें...">
+            </div>
+            
+            <div class="input-group">
+                <label for="recipient">प्राप्तकर्ता का नाम (वैकल्पिक):</label>
+                <input type="text" id="recipient" placeholder="जिसे बधाई देना चाहते हैं...">
+            </div>
+            
+            <button class="btn" onclick="generateWish()">ईद विश बनाएं</button>
+            
+            <div class="moon"></div>
+            
+            <div class="wish-container" id="wish-result">
+                <p class="wish-text">यहाँ आपकी पर्सनलाइज्ड ईद विश दिखाई देगी...</p>
+                <p class="from-text" id="from-text"></p>
+            </div>
+            
+            <button class="btn" onclick="shareWish()" id="share-btn" style="display: none; background: linear-gradient(135deg, #2196F3, #0D47A1);">
+                विश शेयर करें
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const wishes = [
+            "{{recipient}} को मेरी तरफ से ईद मुबारक! खुदा करे आपकी हर दुआ कबूल हो और जिंदगी भर दे खुशियों के पल। ईद का यह पावन त्योहार आपके लिए लाए अनगिनत आशीर्वाद!",
+            "{{recipient}} को ईद की हार्दिक शुभकामनाएं! मुबारक हो आपको यह प्यारा सा त्योहार, मिले आपको खुशियों का जहाँ भंडार, चाँद सी चमकती रहे आपकी जिंदगी हर बार!",
+            "प्यारी {{recipient}} को ईद मुबारक! मायूसी दूर हो हर गम भूल जाए, खुशियों की बहार आए, दिल से दिल मिल जाए, यही दुआ है हमारी इस पावन ईद पर आपके लिए!",
+            "{{recipient}} जान, ईद मुबारक हो आपको! सेवइयों की मिठास, चाँद की चांदनी और दुआओं की बरकत आपके घर आए। खुदा करे आपका हर सपना पूरा हो!"
+        ];
+
+        function generateWish() {
+            const name = document.getElementById('name').value.trim();
+            const recipient = document.getElementById('recipient').value.trim();
+            
+            if (!name) {
+                alert('कृपया अपना नाम दर्ज करें');
+                return;
+            }
+            
+            const recipientName = recipient || 'प्रिय';
+            const randomWish = wishes[Math.floor(Math.random() * wishes.length)];
+            let wishText = randomWish.replace(/{{recipient}}/g, recipientName);
+            
+            document.getElementById('wish-result').innerHTML = `
+                <p class="wish-text">${wishText.replace(/\n/g, '<br>')}</p>
+                <p class="from-text">- ${name}</p>
+            `;
+            
+            document.getElementById('share-btn').style.display = 'block';
+        }
+
+        function shareWish() {
+            const name = document.getElementById('name').value.trim();
+            const recipient = document.getElementById('recipient').value.trim() || 'प्रिय';
+            const wishText = document.querySelector('.wish-text').innerText;
+            const fromText = document.querySelector('.from-text').innerText;
+            
+            const shareText = `${recipient},\n\n${wishText}\n\n${fromText}\n\nइस ईद विशेष ग्रीटिंग को देखें: ${window.location.href}`;
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: `${name} की तरफ से ईद मुबारक`,
+                    text: shareText,
+                    url: window.location.href
+                }).catch(err => {
+                    console.log('Error sharing:', err);
+                    copyToClipboard(shareText);
+                });
+            } else {
+                copyToClipboard(shareText);
+            }
+        }
+
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+            alert('ईद विश कॉपी हो गई है! आप इसे कहीं भी पेस्ट कर सकते हैं।\n\n' + text);
+        }
+    </script>
+</body>
+</html>
