@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free online Text-to-Speech converter with multiple languages including Hindi. Convert any text to natural sounding speech instantly.">
+    <meta name="keywords" content="text to speech, TTS, Hindi voice, speech synthesis, online converter">
+    <title>Premium Text-to-Speech Converter | Hindi & English Support</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #f8f9fa;
+            --accent-color: #ff6b6b;
+            --dark-color: #343a40;
+            --light-color: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7ff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), #6c5ce7);
+            color: white;
+            padding: 20px 0;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .main-app {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .text-input-container {
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            resize: vertical;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 107, 255, 0.2);
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .control-group {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            background-color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        select:focus, button:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        button:hover {
+            background-color: #3a5bef;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .button-secondary {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .button-secondary:hover {
+            background-color: #e2e6ea;
+        }
+
+        .button-accent {
+            background-color: var(--accent-color);
+        }
+
+        .button-accent:hover {
+            background-color: #e05555;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .action-buttons button {
+            flex: 1;
+        }
+
+        .voice-preview {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: var(--secondary-color);
+            border-radius: var(--border-radius);
+            display: none;
+        }
+
+        .voice-preview h3 {
+            margin-bottom: 15px;
+        }
+
+        .audio-player {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading animation */
+        .loader {
+            display: none;
+            width: 30px;
+            height: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Ad container */
+        .ad-container {
+            margin: 30px 0;
+            padding: 15px;
+            background-color: #f0f2f5;
+            border-radius: var(--border-radius);
+            text-align: center;
+            min-height: 90px;
+        }
+
+        /* Premium badge */
+        .premium-badge {
+            background-color: #ffc107;
+            color: #333;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: bold;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        /* Rate control */
+        .rate-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .rate-control input {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Premium Text-to-Speech Converter <span class="premium-badge">PRO</span></h1>
+            <p class="subtitle">Convert any text to natural sounding speech with Hindi and English voices</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="ad-container">
+            <!-- AdSense Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="main-app">
+            <div class="text-input-container">
+                <label for="text-to-speak">Enter your text here:</label>
+                <textarea id="text-to-speak" placeholder="Type or paste your text here..."></textarea>
+            </div>
+
+            <div class="controls">
+                <div class="control-group">
+                    <label for="voice-select">Select Voice:</label>
+                    <select id="voice-select">
+                        <option value="">Loading voices...</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="language-select">Language:</label>
+                    <select id="language-select">
+                        <option value="hi-IN">Hindi (India)</option>
+                        <option value="en-US">English (US)</option>
+                        <option value="en-GB">English (UK)</option>
+                        <option value="es-ES">Spanish</option>
+                        <option value="fr-FR">French</option>
+                        <option value="de-DE">German</option>
+                    </select>
+                </div>
+
+                <div class="control-group">
+                    <label for="rate-select">Speech Rate:</label>
+                    <div class="rate-control">
+                        <input type="range" id="rate-select" min="0.5" max="2" step="0.1" value="1">
+                        <span id="rate-value">1.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button id="speak-button">
+                    <i class="fas fa-play"></i> Speak
+                </button>
+                <button id="pause-button" class="button-secondary">
+                    <i class="fas fa-pause"></i> Pause
+                </button>
+                <button id="stop-button" class="button-secondary">
+                    <i class="fas fa-stop"></i> Stop
+                </button>
+                <button id="download-button" class="button-accent">
+                    <i class="fas fa-download"></i> Download
+                </button>
+            </div>
+
+            <div class="voice-preview" id="voice-preview">
+                <h3>Voice Preview:</h3>
+                <audio controls class="audio-player" id="preview-audio"></audio>
+            </div>
+        </div>
+
+        <div class="ad-container">
+            <!-- AdSense Ad -->
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="XXXXXXXXXX"
+                 data-ad-format="auto"
+                 data-full-width-responsive="true"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-language"></i>
+                </div>
+                <h3 class="feature-title">Multiple Languages</h3>
+                <p>Convert text to speech in Hindi, English, Spanish, French, and more with natural sounding voices.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3 class="feature-title">Adjustable Speed</h3>
+                <p>Control the speech rate to make it faster or slower according to your preference.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <h3 class="feature-title">Download Audio</h3>
+                <p>Save the generated speech as MP3 files to listen offline or use in your projects.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Premium Text-to-Speech Converter. All rights reserved.</p>
+            <p>This tool uses the Web Speech API for speech synthesis.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // DOM Elements
+            const textInput = document.getElementById('text-to-speak');
+            const voiceSelect = document.getElementById('voice-select');
+            const languageSelect = document.getElementById('language-select');
+            const rateSelect = document.getElementById('rate-select');
+            const rateValue = document.getElementById('rate-value');
+            const speakButton = document.getElementById('speak-button');
+            const pauseButton = document.getElementById('pause-button');
+            const stopButton = document.getElementById('stop-button');
+            const downloadButton = document.getElementById('download-button');
+            const voicePreview = document.getElementById('voice-preview');
+            const previewAudio = document.getElementById('preview-audio');
+            
+            // Speech synthesis objects
+            const synth = window.speechSynthesis;
+            let utterance = null;
+            let voices = [];
+            let audioChunks = [];
+            let mediaRecorder;
+            let audioContext;
+            let audioStreamDestination;
+            
+            // Update rate value display
+            rateSelect.addEventListener('input', () => {
+                rateValue.textContent = rateSelect.value;
+            });
+            
+            // Load available voices
+            function loadVoices() {
+                voices = synth.getVoices();
+                voiceSelect.innerHTML = '';
+                
+                // Filter voices by selected language
+                const filteredVoices = voices.filter(voice => 
+                    voice.lang.includes(languageSelect.value.split('-')[0]));
+                
+                if (filteredVoices.length > 0) {
+                    filteredVoices.forEach(voice => {
+                        const option = document.createElement('option');
+                        option.value = voice.name;
+                        option.textContent = `${voice.name} (${voice.lang}) ${voice.default ? '— DEFAULT' : ''}`;
+                        voiceSelect.appendChild(option);
+                    });
+                    
+                    // Show preview for the first voice
+                    showVoicePreview(filteredVoices[0]);
+                } else {
+                    const option = document.createElement('option');
+                    option.textContent = 'No voices available for selected language';
+                    voiceSelect.appendChild(option);
+                }
+            }
+            
+            // Show voice preview
+            function showVoicePreview(voice) {
+                const previewText = voice.lang.startsWith('hi') ? 
+                    'नमस्ते, यह हिंदी आवाज का प्रदर्शन है' : 
+                    'Hello, this is a preview of the selected voice';
+                
+                const previewUtterance = new SpeechSynthesisUtterance(previewText);
+                previewUtterance.voice = voice;
+                previewUtterance.rate = parseFloat(rateSelect.value);
+                
+                // For preview, we'll use the Web Audio API to capture and play
+                synth.speak(previewUtterance);
+                voicePreview.style.display = 'block';
+            }
+            
+            // Initialize voices
+            if (synth.onvoiceschanged !== undefined) {
+                synth.onvoiceschanged = loadVoices;
+            }
+            
+            // Load voices initially
+            loadVoices();
+            
+            // Language change handler
+            languageSelect.addEventListener('change', loadVoices);
+            
+            // Voice change handler
+            voiceSelect.addEventListener('change', () => {
+                const selectedVoiceName = voiceSelect.value;
+                const selectedVoice = voices.find(voice => voice.name === selectedVoiceName);
+                if (selectedVoice) {
+                    showVoicePreview(selectedVoice);
+                }
+            });
+            
+            // Speak button handler
+            speakButton.addEventListener('click', () => {
+                if (synth.speaking) {
+                    synth.cancel();
+                }
+                
+                const text = textInput.value.trim();
+                if (text === '') {
+                    alert('Please enter some text first');
+                    return;
+                }
+                
+                const selectedVoiceName = voiceSelect.value;
+                const selectedVoice = voices.find(voice => voice.name === selectedVoiceName);
+                
+                utterance = new SpeechSynthesisUtterance(text);
+                utterance.voice = selectedVoice || null;
+                utterance.rate = parseFloat(rateSelect.value);
+                utterance.pitch = 1;
+                
+                // Event handlers
+                utterance.onstart = () => {
+                    speakButton.disabled = true;
+                    pauseButton.disabled = false;
+                    stopButton.disabled = false;
+                };
+                
+                utterance.onend = () => {
+                    speakButton.disabled = false;
+                    pauseButton.disabled = true;
+                    stopButton.disabled = true;
+                };
+                
+                synth.speak(utterance);
+            });
+            
+            // Pause button handler
+            pauseButton.addEventListener('click', () => {
+                if (synth.speaking) {
+                    synth.pause();
+                    pauseButton.disabled = true;
+                    speakButton.disabled = false;
+                }
+            });
+            
+            // Stop button handler
+            stopButton.addEventListener('click', () => {
+                synth.cancel();
+                speakButton.disabled = false;
+                pauseButton.disabled = true;
+                stopButton.disabled = true;
+            });
+            
+            // Download button handler
+            downloadButton.addEventListener('click', async () => {
+                const text = textInput.value.trim();
+                if (text === '') {
+                    alert('Please enter some text first');
+                    return;
+                }
+                
+                // For a real implementation, you would need a server-side component
+                // to generate actual MP3 files. This is a placeholder implementation.
+                alert('Download feature would connect to a TTS API or server-side component to generate an MP3 file in a real implementation.');
+                
+                // In a real app, you might do something like:
+                // const response = await fetch('/api/generate-tts', {
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({
+                //         text: text,
+                //         voice: voiceSelect.value,
+                //         rate: rateSelect.value
+                //     })
+                // });
+                // const blob = await response.blob();
+                // const url = URL.createObjectURL(blob);
+                // const a = document.createElement('a');
+                // a.href = url;
+                // a.download = 'speech.mp3';
+                // a.click();
+            });
+            
+            // Check for Web Speech API support
+            if (!('speechSynthesis' in window)) {
+                alert('Sorry, your browser doesn\'t support the Web Speech API. Please try Chrome, Edge, or Safari.');
+                speakButton.disabled = true;
+                pauseButton.disabled = true;
+                stopButton.disabled = true;
+                downloadButton.disabled = true;
+            }
+        });
+    </script>
+</body>
+</html>
